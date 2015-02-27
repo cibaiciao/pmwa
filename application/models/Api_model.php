@@ -42,4 +42,21 @@ class Api_model extends CI_Model {
         return $this->db->get_where("users",array("id" => $id))->row_array();
     }
 
+    public function getTeams() {
+
+        $this->db->select("t.*, (SELECT COUNT(id) FROM users_teams WHERE team_id=t.id AND isConfirm=1) as numberOfMembers",FALSE)
+                 ->from("teams t")
+                 ->join("users_teams ut","ut.team_id = t.id")
+                 ->where("ut.user_id",$this->session->userdata('id'));
+        $query = $this->db->get();
+
+        return $query->num_rows() > 0 ? $query->result_array() : array();
+    }
+
+    public function getTeam($id) {
+        $query = $this->db->get_where("teams",array("id" => $id,"createdBy" => $this->session->userdata("id") ));
+
+        return $query->num_rows() > 0 ? $query->row_array() : array();
+    }
+
 }

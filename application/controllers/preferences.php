@@ -10,7 +10,7 @@ class Preferences extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->vars(array("nav" => array("","","","","","active")));
+        $this->load->vars(array("nav" => array("","","","","active")));
     }
 
     public function index() {

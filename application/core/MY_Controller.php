@@ -15,6 +15,8 @@ class MY_Controller extends CI_Controller {
             redirect(site_url('login'));
         }
 
+        $this->load->model("Api_model");
+
     }
 
     public function logout() {
