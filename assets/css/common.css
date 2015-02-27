@@ -1,0 +1,9 @@
+body > .container-fluid {
+    padding-top: 80px;
+}
+
+#global-msg { text-align: center; }
+
+.nopaddingall { padding:0 !important;}
+
+.nomarginall { margin:0 !important;}
