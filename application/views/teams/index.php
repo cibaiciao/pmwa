@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Status</th>
                 <th>Title</th>
                 <th># of members</th>
                 <th>Status</th>

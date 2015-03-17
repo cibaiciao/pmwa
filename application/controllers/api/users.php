@@ -132,7 +132,7 @@ class Users extends MY_RestController {
 
         $user = $this->Api_model->getUser($this->session->userdata('id'));
 
-        if ( (string)md5($current_password.HASHKEY) !== (string)$user['password'] ) {
+        if ( (string)md5($current_password.HASHKEY) !== (string)$user['password'] )  {
             $this->response(array("message" => "The current password does not match in system.", "type" => "danger"),UNAUTHORIZED);
         }
 

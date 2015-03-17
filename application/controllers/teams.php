@@ -15,7 +15,7 @@ class Teams extends MY_Controller {
 
     public function index() {
         $data['title'] = "Teams";
-        $data["css"][] = "assets/css/teams/index.css";
+//        $data["css"][] = "assets/css/teams/index.css";
         $data["js"][] = "assets/js/teams/index.js";
 
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
@@ -26,7 +26,7 @@ class Teams extends MY_Controller {
 
     public function add() {
         $data['title'] = "Teams - Add new";
-        $data["css"][] = "assets/css/teams/add.css";
+//        $data["css"][] = "assets/css/teams/add.css";
         $data["js"][] = "assets/js/teams/add.js";
 
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
@@ -44,9 +44,11 @@ class Teams extends MY_Controller {
             redirect(site_url("teams/index"));
         }
 
+
+        $data['isOwner'] = $teamdata['createdBy'] == $this->session->userdata('id') ? 1 : 0;
         $data["id"] = $id;
         $data['title'] = "Teams - Edit #{$id}";
-        $data["css"][] = "assets/css/teams/edit.css";
+//        $data["css"][] = "assets/css/teams/edit.css";
         $data["js"][] = "assets/js/teams/edit.js";
 
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);

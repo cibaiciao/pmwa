@@ -33,6 +33,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
     <script src="/assets/libraries/blockui.js"></script>
     <script>
 //        $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
@@ -63,6 +67,7 @@
             <?php if ( $this->session->userdata('isLogin') ): ?>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:;">Welcome back, <?php echo $this->Api_model->getCreatedBy($this->session->userdata('id')) ?></a></li>
                     <li><a href="<?php echo site_url($this->router->class.'/logout') ?>">Logout</a></li>
                 </ul>
             </div>

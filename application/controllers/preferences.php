@@ -15,7 +15,7 @@ class Preferences extends MY_Controller {
 
     public function index() {
         $data['title'] = "Preferences";
-        $data["css"][] = "assets/css/preferences/index.css";
+//        $data["css"][] = "assets/css/preferences/index.css";
         $data["js"][] = "assets/js/preferences/index.js";
 
 
@@ -28,7 +28,7 @@ class Preferences extends MY_Controller {
 
     public function info() {
         $data['title'] = "Contact Information";
-        $data["css"][] = "assets/css/preferences/info.css";
+//        $data["css"][] = "assets/css/preferences/info.css";
         $data["js"][] = "assets/js/preferences/info.js";
 
 
@@ -40,7 +40,7 @@ class Preferences extends MY_Controller {
 
     public function password() {
         $data['title'] = "Password";
-        $data["css"][] = "assets/css/preferences/password.css";
+//        $data["css"][] = "assets/css/preferences/password.css";
         $data["js"][] = "assets/js/preferences/password.js";
 
 

@@ -37,7 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+$route['teams/(:num)/users/add'] = "teams/users/$1/add";
+$route["api/teams/(:num)/users"] = "api/teams/users/$1";
 $route['login'] = "users/login";
 $route['register'] = "users/register";
 $route['forgot'] = "users/forgot";

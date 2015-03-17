@@ -15,7 +15,7 @@ class Dashboard extends MY_Controller {
 
     public  function  index() {
         $data['title'] = "Dashboard";
-        $data["css"][] = "assets/css/dashboard/index.css";
+//        $data["css"][] = "assets/css/dashboard/index.css";
         $data["js"][] = "assets/js/dashboard/index.js";
 
 
