@@ -78,6 +78,8 @@ class Projects extends MY_RestController
 
     }
 
+
+
     public function get_get() {
         $id = $this->get("id",TRUE);
 
@@ -118,6 +120,31 @@ class Projects extends MY_RestController
 
     }
 
+    public function tasks_get() {
+        $id = $this->get("id",TRUE);
+
+        $tasks = $this->Api_model->getTasksByProject($id);
+
+        if ( count($tasks) < 1 ) {
+            $this->response(array("data" => '<tr><td colspan="6">No task found.</td></tr>'),SUCCESS);
+        }
+
+        $html = array();
+
+        foreach ( $tasks as &$_task ) {
+            $html[] = '<tr data-taskid="'.$_task['id'].'">';
+            $html[] = '<td>'.$_task['title'].'</td>';
+            $html[] = '<td></td>';
+            $html[] = '<td></td>';
+            $html[] = '<td></td>';
+            $html[] = '<td></td>';
+            $html[] = '<td></td>';
+            $html[] = "</tr>";
+        }
+
+        $this->response(array("data" => implode("",$html)),SUCCESS);
+
+    }
 
     public function summary_get() {
         $id = $this->get("id",TRUE);

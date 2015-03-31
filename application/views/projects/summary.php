@@ -10,7 +10,7 @@
 
     <hr/>
 
-    <div class="row">
+    <div class="row" id="summary">
         <div class="col-md-6">
             <table class="table table-condensed">
                 <caption>Unresolved: By Priority</caption>

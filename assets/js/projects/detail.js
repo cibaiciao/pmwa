@@ -63,12 +63,28 @@ function getSummaryByType() {
     });
 }
 
+function getTaskList() {
+    return $.ajax({
+        type:"GET",
+        dataType:"json",
+        data:"api_key="+publicKey+"&id="+project_id,
+        url:"/api/projects/tasks",
+        success:function(resp) {
+            $("#tasks").html(resp.data);
+        }
+    });
+}
 
 $(document).ready(function(){
-    getSummaryByPriority();
-    getSummaryByAssignee();
-    getSummaryByStatus();
-    getSummaryBySize();
-    getSummaryByType();
+    if ( $("#summary").length > 0 ) {
+        getSummaryByPriority();
+        getSummaryByAssignee();
+        getSummaryByStatus();
+        getSummaryBySize();
+        getSummaryByType();
+    }
+    if ( $("#task-list").length > 0 ) {
+        getTaskList();
+    }
 
 });
