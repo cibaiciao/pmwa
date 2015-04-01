@@ -129,6 +129,12 @@ class Api_model extends CI_Model {
         return $query->num_rows() > 0 ? $query->row_array() : array();
     }
 
+    public function getUniversalProject($id) {
+        $query = $this->db->get_where("projects",array("id" => $id));
+
+        return $query->num_rows() > 0 ? $query->row_array() : array();
+    }
+
     public function getUnconditionalProject($id) {
         $query = $this->db->get_where("projects",array("id" => $id));
 

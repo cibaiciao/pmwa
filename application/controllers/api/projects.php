@@ -126,11 +126,15 @@ class Projects extends MY_RestController
         $tasks = $this->Api_model->getTasksByProject($id);
 
         if ( count($tasks) < 1 ) {
-            $this->response(array("data" => '<tr><td colspan="6">No task found.</td></tr>'),SUCCESS);
+            $this->response(array("data" => '<tr><td colspan="7">No task found.</td></tr>'),SUCCESS);
         }
 
         $html = array();
         $statusMapping = array("Open","In Progress","QA","Closed");
+
+
+        $project = $this->Api_model->getUniversalProject($id);
+        $key = $project['key'];
 
         foreach ( $tasks as &$_task ) {
             if ( !intval($_task['assignee']) ) {
@@ -143,10 +147,11 @@ class Projects extends MY_RestController
 
 
             $html[] = '<tr data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
+            $html[] = sprintf('<td>%s-%03d</td>',$key,$_task['id']);
             $html[] = '<td>'.$_task['name'].'</td>';
             $html[] = '<td>'.$assigneeName.'</td>';
             $html[] = '<td>'.ucwords(strtolower($_task['priority'])).'</td>';
-            $html[] = '<td>'.ucwords(strtolower($statusMapping[$_task['status']]).'</td>';
+            $html[] = '<td>'.ucwords(strtolower($statusMapping[$_task['status']])).'</td>';
             $html[] = '<td>'.ucwords(strtolower($_task['type'])).'</td>';
             $html[] = '<td>'.ucwords(strtolower($_task['size'])).'</td>';
             $html[] = "</tr>";

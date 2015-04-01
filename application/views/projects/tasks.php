@@ -6,6 +6,7 @@
             <table class="table table-condensed">
                 <thead>
                 <tr>
+                    <th>Key</th>
                     <th>Summary</th>
                     <th>Assignee</th>
                     <th>Priority</th>
