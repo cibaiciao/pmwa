@@ -230,4 +230,11 @@ class Api_model extends CI_Model {
 
 
     }
+
+    public function getTasksByProject($projectid) {
+        $query = $this->db->get_where("tasks",array("project_id" => $projectid));
+
+        return $query->num_rows() > 0 ? $query->result_array() : array();
+    }
+
 }

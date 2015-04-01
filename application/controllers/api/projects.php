@@ -132,13 +132,22 @@ class Projects extends MY_RestController
         $html = array();
 
         foreach ( $tasks as &$_task ) {
-            $html[] = '<tr data-taskid="'.$_task['id'].'">';
-            $html[] = '<td>'.$_task['title'].'</td>';
-            $html[] = '<td></td>';
-            $html[] = '<td></td>';
-            $html[] = '<td></td>';
-            $html[] = '<td></td>';
-            $html[] = '<td></td>';
+            if ( !intval($_task['assignee']) ) {
+                $_task['assignee'] = -1;
+                $assigneeName = "NA";
+            } else {
+                $userArr =  $this->Api_model->getUser($_task['assignee']);
+                $assigneeName = $userArr['fname'].' '.$userArr['lname'];
+            }
+
+
+            $html[] = '<tr data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
+            $html[] = '<td>'.$_task['name'].'</td>';
+            $html[] = '<td>'.$assigneeName.'</td>';
+            $html[] = '<td>'.$_task['priority'].'</td>';
+            $html[] = '<td>'.$_task['status'].'</td>';
+            $html[] = '<td>'.$_task['type'].'</td>';
+            $html[] = '<td>'.$_task['size'].'</td>';
             $html[] = "</tr>";
         }
 
