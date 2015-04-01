@@ -130,6 +130,7 @@ class Projects extends MY_RestController
         }
 
         $html = array();
+        $statusMapping = array("Open","In Progress","QA","Closed");
 
         foreach ( $tasks as &$_task ) {
             if ( !intval($_task['assignee']) ) {
@@ -145,7 +146,7 @@ class Projects extends MY_RestController
             $html[] = '<td>'.$_task['name'].'</td>';
             $html[] = '<td>'.$assigneeName.'</td>';
             $html[] = '<td>'.$_task['priority'].'</td>';
-            $html[] = '<td>'.$_task['status'].'</td>';
+            $html[] = '<td>'.$statusMapping[$_task['status']].'</td>';
             $html[] = '<td>'.$_task['type'].'</td>';
             $html[] = '<td>'.$_task['size'].'</td>';
             $html[] = "</tr>";

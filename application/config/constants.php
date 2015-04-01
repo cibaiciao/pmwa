@@ -52,5 +52,15 @@ define("BAD_REQUEST",400);
 define("SUCCESS",200);
 define("NO_CONTENT",204);
 
+// task status
+
+
+
+define("OPEN",0);
+define("IN_PROGRESS",1);
+define("QA",2);
+define("CLOSED",3);
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
