@@ -145,10 +145,10 @@ class Projects extends MY_RestController
             $html[] = '<tr data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
             $html[] = '<td>'.$_task['name'].'</td>';
             $html[] = '<td>'.$assigneeName.'</td>';
-            $html[] = '<td>'.$_task['priority'].'</td>';
-            $html[] = '<td>'.$statusMapping[$_task['status']].'</td>';
-            $html[] = '<td>'.$_task['type'].'</td>';
-            $html[] = '<td>'.$_task['size'].'</td>';
+            $html[] = '<td>'.ucwords(strtolower($_task['priority'])).'</td>';
+            $html[] = '<td>'.ucwords(strtolower($statusMapping[$_task['status']]).'</td>';
+            $html[] = '<td>'.ucwords(strtolower($_task['type'])).'</td>';
+            $html[] = '<td>'.ucwords(strtolower($_task['size'])).'</td>';
             $html[] = "</tr>";
         }
 
