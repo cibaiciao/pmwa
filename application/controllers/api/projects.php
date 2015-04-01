@@ -146,7 +146,7 @@ class Projects extends MY_RestController
             }
 
 
-            $html[] = '<tr data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
+            $html[] = '<tr data-projectkey="'.$key.'" data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
             $html[] = sprintf('<td>%s-%03d</td>',$key,$_task['id']);
             $html[] = '<td>'.$_task['name'].'</td>';
             $html[] = '<td>'.$assigneeName.'</td>';
