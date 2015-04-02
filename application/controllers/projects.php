@@ -97,6 +97,9 @@ class Projects extends MY_Controller {
     }
 
     public function tasks($taskid) {
+        $nav = array("","active");
+        $this->load->vars(array("projectNav" => $nav));
+        $data["tab"] =$tab = "tasks";
 
         $data["id"] = $taskid;
         $data['title'] = "Task - Detail #{$taskid}";
@@ -120,7 +123,8 @@ class Projects extends MY_Controller {
 
 
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
-        $data["body"] = $this->load->view("projects/tasksdetail",$data,TRUE);
+        $data[$tab] = $this->load->view("projects/tasksdetail",$data,TRUE);
+        $data["body"] = $this->load->view("projects/detail",$data,TRUE);
 
         $this->load->view("layout",$data);
 
