@@ -1,7 +1,7 @@
 <div class="col-sm-10">
     <div class="row">
         <div class="col-sm-6">
-            <h3 class="page-header nomarginall"><a href="/projects/detail/<?php echo $project['id'] ?>/tasks"><?php echo $project['name'] ?></a> / <a href="<?php echo current_url() ?>"><?php echo $project['key'] ?>-<?php echo sprintf('%03d',$task['id']); ?></a></h3>
+            <h3 class="page-header"><a href="/projects/detail/<?php echo $project['id'] ?>/tasks"><?php echo $project['name'] ?></a> / <a href="<?php echo current_url() ?>"><?php echo $project['key'] ?>-<?php echo sprintf('%03d',$task['id']); ?></a></h3>
 
             <div role="alert" class="" id="info-msg"></div>
 
@@ -39,7 +39,7 @@
             </form>
         </div>
         <div class="col-sm-6">
-            <h3 class="page-header nomarginall">Comment(s)</h3>
+            <h3 class="page-header">Comment(s)</h3>
             <div id="comment-list">
 
             </div>

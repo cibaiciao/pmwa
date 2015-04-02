@@ -109,7 +109,7 @@ class Projects extends MY_Controller {
         $task = $this->Api_model->getTask($taskid);
         $project = $this->Api_model->getUniversalProject($task['project_id']);
         $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
-        
+
         $data['task'] = $task;
         $data['project'] = $project;
 
