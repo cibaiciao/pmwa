@@ -44,7 +44,7 @@ class Projects extends MY_RestController
         $key = $this->post("key",TRUE);
         $deadline = $this->post("deadline",TRUE);
         $description = $this->post("description",TRUE);
-
+        $team_id = $this->post('team_id',TRUE);
 
 
         if ( trim($name) === "" ) {
@@ -70,7 +70,8 @@ class Projects extends MY_RestController
             "createdBy" => $this->session->userdata('id'),
             "createdDate" => date("Y-m-d H:i:s"),
             "deadline" => $deadline,
-            "description" => $description
+            "description" => $description,
+            'team_id' => $team_id
         );
         $this->db->insert("projects",$toInsert);
 
@@ -145,10 +146,11 @@ class Projects extends MY_RestController
                 $assigneeName = $userArr['fname'].' '.$userArr['lname'];
             }
 
+            $ticket = sprintf('%s-%03d',$key,$_task['id']);
 
             $html[] = '<tr data-projectkey="'.$key.'" data-taskid="'.$_task['id'].'" data-assigneeid="'.$_task['assignee'].'" data-priority="'.$_task['priority'].'" data-status="'.$_task['status'].'" data-type="'.$_task['type'].'" data-size="'.$_task['size'].'"  >';
-            $html[] = sprintf('<td>%s-%03d</td>',$key,$_task['id']);
-            $html[] = '<td>'.$_task['name'].'</td>';
+            $html[] = '<td><a href="/projects/tasks/'.$_task['id'].'">'.$ticket.'</a></td>';
+            $html[] = '<td>'.'<a href="/projects/tasks/'.$_task['id'].'">'.$_task['name'].'</a></td>';
             $html[] = '<td>'.$assigneeName.'</td>';
             $html[] = '<td>'.ucwords(strtolower($_task['priority'])).'</td>';
             $html[] = '<td>'.ucwords(strtolower($statusMapping[$_task['status']])).'</td>';

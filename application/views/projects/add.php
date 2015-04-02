@@ -13,6 +13,10 @@
             <input type="text" class="form-control" id="key" placeholder="Enter unique key" name="key" required="true" autocomplete="off">
         </div>
         <div class="form-group">
+            <label for="team_id">Team</label>
+            <?php echo form_dropdown('team_id',$teamOption,"",'class="form-control" id="team_id"') ?>
+        </div>
+        <div class="form-group">
             <label for="deadline">Deadline</label>
             <input type="text" class="form-control date" id="deadline" name="deadline" required="true" autocomplete="off">
         </div>

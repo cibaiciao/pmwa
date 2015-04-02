@@ -243,4 +243,33 @@ class Api_model extends CI_Model {
         return $query->num_rows() > 0 ? $query->result_array() : array();
     }
 
+    public function getTask($id) {
+        $query = $this->db->get_where("tasks",array("id" => $id));
+
+        return $query->num_rows() > 0 ? $query->row_array() : array();
+    }
+
+    public function getParticipatedTeam() {
+        $this->db->select("t.*")
+                 ->from("users_teams ut")
+                 ->join("teams t","t.id = ut.team_id")
+                 ->where("ut.user_id",$this->session->userdata('id'));
+
+        $query = $this->db->get();
+
+        return $query->num_rows() > 0 ? $query->result_array() : array();
+    }
+
+    public function getAssignee($team_id) {
+        $this->db->select('u.*')
+                 ->from("users_teams ut")
+                 ->join("users u","u.id = ut.user_id")
+                 ->where("ut.team_id",$team_id)
+                 ->where('ut.isConfirm',1);
+        $query = $this->db->get();
+
+        return $query->num_rows() > 0 ? $query->result_array() : array();
+    }
+
+
 }

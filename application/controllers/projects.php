@@ -29,6 +29,14 @@ class Projects extends MY_Controller {
         $data['title'] = "Projects - Add new";
         $data["js"][] = "assets/js/projects/add.js";
 
+        $teams = $this->Api_model->getParticipatedTeam();
+
+        $teamOption = array();
+        foreach ( $teams as &$_team ) {
+            $teamOption[$_team['id']] = $_team['name'];
+        }
+
+        $data['teamOption'] = $teamOption;
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
         $data["body"] = $this->load->view("projects/add",$data,TRUE);
 
@@ -86,6 +94,36 @@ class Projects extends MY_Controller {
         $data["body"] = $this->load->view("projects/detail",$data,TRUE);
 
         $this->load->view("layout",$data);
+    }
+
+    public function tasks($taskid) {
+
+        $data["id"] = $taskid;
+        $data['title'] = "Task - Detail #{$taskid}";
+//        $data["js"][] = "assets/js/projects/tasksdetail.js";
+
+        $task = $this->Api_model->getTask($taskid);
+        $project = $this->Api_model->getUniversalProject($task['project_id']);
+
+        $data['task'] = $task;
+        $data['project'] = $project;
+
+        $assignees = $this->Api_model->getAssignee($project['team_id']);
+
+        $assigneeOption = array();
+        if ( count($assignees) > 0 ) {
+            foreach ( $assignees as &$_assignee ) {
+                $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
+            }
+        }
+        $data['assigneeOption'] = $assigneeOption;
+
+
+        $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
+        $data["body"] = $this->load->view("projects/tasksdetail",$data,TRUE);
+
+        $this->load->view("layout",$data);
+
     }
 
 }
