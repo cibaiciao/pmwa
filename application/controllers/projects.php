@@ -100,6 +100,7 @@ class Projects extends MY_Controller {
         $nav = array("","active");
         $this->load->vars(array("projectNav" => $nav));
         $data["tab"] =$tab = "tasks";
+        $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
 
         $data["id"] = $taskid;
         $data['title'] = "Task - Detail #{$taskid}";
