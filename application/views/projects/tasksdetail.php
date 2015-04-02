@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="priority">Priority</label>
-                    <?php echo form_dropdown("priority",array('Emergency' => 'Emergency','Critical' => 'Critical','Major' => 'Major','Minor' => 'Minor'),$task['priority'],'class="form-control"  id="priority"') ?>
+                    <?php echo form_dropdown("priority",array('Emergency' => 'Emergency','Critical' => 'Critical','MAJOR' => 'Major','Minor' => 'Minor'),$task['priority'],'class="form-control"  id="priority"') ?>
                 </div>
                 <div class="form-group">
                     <label for="size">Size</label>
