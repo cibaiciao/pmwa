@@ -100,7 +100,7 @@ class Projects extends MY_Controller {
         $nav = array("","active");
         $this->load->vars(array("projectNav" => $nav));
         $data["tab"] =$tab = "tasks";
-        $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
+
 
         $data["id"] = $taskid;
         $data['title'] = "Task - Detail #{$taskid}";
@@ -108,7 +108,8 @@ class Projects extends MY_Controller {
 
         $task = $this->Api_model->getTask($taskid);
         $project = $this->Api_model->getUniversalProject($task['project_id']);
-
+        $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
+        
         $data['task'] = $task;
         $data['project'] = $project;
 
