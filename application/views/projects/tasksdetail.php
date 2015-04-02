@@ -12,11 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
-                    <?php echo form_dropdown("type",array(0 => 'Story',1 => 'Improvement',2 => 'Bug'),$task['type'],'class="form-control" id="type"') ?>
+                    <?php echo form_dropdown("type",array('Story' => 'Story','Improvement' => 'Improvement','Bug' => 'Bug'),$task['type'],'class="form-control" id="type"') ?>
                 </div>
                 <div class="form-group">
                     <label for="priority">Priority</label>
-                    <?php echo form_dropdown("priority",array(0 => 'Emergency',1 => 'Critical',2 => 'Major',3 => 'Minor'),$task['priority'],'class="form-control"  id="priority"') ?>
+                    <?php echo form_dropdown("priority",array('Emergency' => 'Emergency','Critical' => 'Critical','Major' => 'Major','Major' => 'Minor'),$task['priority'],'class="form-control"  id="priority"') ?>
                 </div>
                 <div class="form-group">
                     <label for="size">Size</label>
