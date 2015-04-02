@@ -12,15 +12,15 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
-                    <?php echo form_dropdown("type",array('Story' => 'Story','Improvement' => 'Improvement','Bug' => 'Bug'),$task['type'],'class="form-control" id="type"') ?>
+                    <?php echo form_dropdown("type",array('STORY' => 'STORY','IMPROVEMENT' => 'IMPROVEMENT','BUG' => 'BUG'),$task['type'],'class="form-control" id="type"') ?>
                 </div>
                 <div class="form-group">
                     <label for="priority">Priority</label>
-                    <?php echo form_dropdown("priority",array('Emergency' => 'Emergency','Critical' => 'Critical','MAJOR' => 'Major','Minor' => 'Minor'),$task['priority'],'class="form-control"  id="priority"') ?>
+                    <?php echo form_dropdown("priority",array('EMERGENCY' => 'EMERGENCY','CRITICAL' => 'CRITICAL','MAJOR' => 'MAJOR','MINOR' => 'MINOR'),$task['priority'],'class="form-control"  id="priority"') ?>
                 </div>
                 <div class="form-group">
                     <label for="size">Size</label>
-                    <?php echo form_dropdown("size",array(0 => 'Small',1 => 'Medium',2 => 'Large'),$task['size'],'class="form-control"  id="size"') ?>
+                    <?php echo form_dropdown("size",array('SMALL' => 'SMALL','MEDIUM' => 'MEDIUM','LARGE' => 'LARGE'),$task['size'],'class="form-control"  id="size"') ?>
                 </div>
                 <div class="form-group">
                     <label for="status">Status</label>
