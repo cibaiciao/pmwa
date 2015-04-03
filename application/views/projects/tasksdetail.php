@@ -40,9 +40,7 @@
         </div>
         <div class="col-sm-6">
             <h3 class="page-header">Comment(s)</h3>
-            <div id="comment-list">
-
-            </div>
+            <div id="comment-list"></div>
             <div style="height:1px;background:#DDD;"></div>
             <form id="commentForm" name="commentForm" role="form">
                 <div class="form-group">
@@ -54,11 +52,9 @@
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
 </div>
+
+<script type="text/javascript">
+    var taskid=<?php echo $task['id'] ?>;
+    var id=<?php echo $project['id'] ?>;
+</script>

@@ -104,7 +104,7 @@ class Projects extends MY_Controller {
 
         $data["id"] = $taskid;
         $data['title'] = "Task - Detail #{$taskid}";
-//        $data["js"][] = "assets/js/projects/tasksdetail.js";
+        $data["js"][] = "assets/js/projects/tasksdetail.js";
 
         $task = $this->Api_model->getTask($taskid);
         $project = $this->Api_model->getUniversalProject($task['project_id']);

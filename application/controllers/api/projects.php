@@ -121,8 +121,54 @@ class Projects extends MY_RestController
 
     }
 
+    protected function handeTaskDetail() {
+        $id = $this->get("id",TRUE);
+
+        // task id
+        $taskid=$this->get('taskid',TRUE);
+
+
+        $comments = $this->Api_model->getComments($taskid,"task");
+
+
+        if ( count($comments) > 0 ) {
+            $html = '';
+            foreach ( $comments as &$_comment ) {
+                $user = $this->Api_model->getUser($_comment['user_id']);
+                $fullName = $user['fname'].' '.$user['lname'];
+                $created = date("m/d/Y g:i A",strtotime($_comment['created']));
+                $comment = $_comment['comment'];
+                $html .= <<<OEF
+                    <div class='comment'>
+                        <p>{$fullName} <small>{$created}</small></p>
+                        <div class="well well-sm">
+                            {$comment}
+                        </div>
+                    </div>
+
+OEF;
+            } unset($_comment);
+        } else {
+            $html = <<<"OEF"
+                    <div class='comment'>
+                        <p>Be the first one to write comment.</p>
+                    </div>
+OEF;
+        }
+
+        $this->response(array("data" => $html),SUCCESS);
+    }
+
     public function tasks_get() {
         $id = $this->get("id",TRUE);
+
+        // task id
+        $taskid=$this->get('taskid',TRUE);
+
+        if ( $taskid ) {
+            $this->handeTaskDetail();
+        }
+
 
         $tasks = $this->Api_model->getTasksByProject($id);
 
