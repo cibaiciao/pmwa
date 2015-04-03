@@ -5,11 +5,14 @@
 function getComments() {
     return $.ajax({
         type:"GET",
-        data:"projectid="+projectid+"&taskid="+taskid+"&api_key="+publicKey,
+        data:"id="+id+"&taskid="+taskid+"&api_key="+publicKey,
         url:"/api/projects/tasks",
+        success:function(resp) {
+            $("#comment-list").html(resp.data);
+        }
     });
 }
 
 $(document).ready(function(){
-
+    getComments();
 });
