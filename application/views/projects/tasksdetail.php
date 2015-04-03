@@ -47,7 +47,7 @@
                     <label for="comment">Write your comment:</label>
                     <textarea name="comment" id="comment" class="form-control"></textarea>
                 </div>
-                <button type="button" class="btn btn-default" id="btn">Add</button>
+                <button type="button" class="btn btn-default" id="btnComment" onclick="addComment(this);">Add</button>
                 <input type="hidden" name="type" value="task"/>
             </form>
         </div>
