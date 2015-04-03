@@ -321,13 +321,17 @@ OEF;
 
     public function comments_post() {
         // task id
-        $taskid=$this->get('taskid',TRUE);
-        $comment = $this->get('comment',TRUE);
+        $taskid=$this->post('taskid',TRUE);
+        $comment = $this->post('comment',TRUE);
+        $type=$this->post('type');
+
+
         $toInsert = array(
             "second_id" => $taskid,
             "user_id" => $this->session->userdata('id'),
-            "comments" => htmlspecialchars($comment),
-            'created' => date("Y-m-d H:i:s")
+            "comment" => htmlspecialchars($comment),
+            'created' => date("Y-m-d H:i:s"),
+            'type' => $type
         );
         $this->db->insert('comments',$toInsert);
 
