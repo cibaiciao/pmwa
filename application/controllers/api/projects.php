@@ -300,7 +300,7 @@ class Projects extends MY_RestController
                 $comment = $_comment['comment'];
                 $html .= <<<OEF
                     <div class='comment'>
-                        <p>{$fullName} <small>{$created}</small></p>
+                        <p><strong>{$fullName}</strong> <small>{$created}</small></p>
                         <div class="well well-sm">
                             {$comment}
                         </div>
