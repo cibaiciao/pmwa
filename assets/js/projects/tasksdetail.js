@@ -19,6 +19,9 @@ function addComment(btn) {
         data:"id="+id+"&taskid="+taskid+"&api_key="+publicKey+"&"+$("#commentForm").serialize(),
         url:"/api/projects/comments",
         success:function(resp) {
+            $("#comment").val("");
+        },
+        complete:function() {
             getComments();
         }
     });

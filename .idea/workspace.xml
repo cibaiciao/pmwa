@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projects.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/api/projects.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7705314" vertical-offset="5651" max-vertical-offset="6555">
-              <caret line="331" column="20" selection-start-line="331" selection-start-column="20" selection-end-line="331" selection-end-column="20" />
+            <state vertical-scroll-proportion="-20.071428" vertical-offset="5651" max-vertical-offset="6555">
+              <caret line="327" column="0" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
               <folding>
                 <marker date="1428080567906" expanded="true" signature="6800:6819" placeholder="..." />
                 <marker date="1428080567906" expanded="true" signature="7995:8014" placeholder="..." />
@@ -120,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasksdetail.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tasksdetail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/projects/tasksdetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.45914844" vertical-offset="0" max-vertical-offset="869">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc;n#getComments#0" expanded="false" />
               </folding>
@@ -198,8 +198,8 @@
         <option value="$PROJECT_DIR$/application/controllers/projects.php" />
         <option value="$PROJECT_DIR$/application/models/api_model.php" />
         <option value="$PROJECT_DIR$/application/views/projects/tasksdetail.php" />
-        <option value="$PROJECT_DIR$/assets/js/projects/tasksdetail.js" />
         <option value="$PROJECT_DIR$/application/controllers/api/projects.php" />
+        <option value="$PROJECT_DIR$/assets/js/projects/tasksdetail.js" />
       </list>
     </option>
   </component>
@@ -494,7 +494,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -906,16 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/projects/tasksdetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc;n#getComments#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/projects/tasks.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="551">
@@ -936,14 +926,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/api/projects.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7705314" vertical-offset="5651" max-vertical-offset="6555">
-          <caret line="331" column="20" selection-start-line="331" selection-start-column="20" selection-end-line="331" selection-end-column="20" />
+        <state vertical-scroll-proportion="-20.071428" vertical-offset="5651" max-vertical-offset="6555">
+          <caret line="327" column="0" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
           <folding>
             <marker date="1428080567906" expanded="true" signature="6800:6819" placeholder="..." />
             <marker date="1428080567906" expanded="true" signature="7995:8014" placeholder="..." />
             <marker date="1428080567906" expanded="true" signature="9257:9276" placeholder="..." />
             <marker date="1428080567906" expanded="true" signature="10343:10362" placeholder="..." />
             <marker date="1428080567906" expanded="true" signature="11428:11447" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/projects/tasksdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45914844" vertical-offset="0" max-vertical-offset="869">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc;n#getComments#0" expanded="false" />
           </folding>
         </state>
       </provider>
