@@ -244,6 +244,9 @@ class Projects extends MY_RestController
 
                     $html = array();
                     foreach ( $data as &$_data ) {
+                        if ( !$_data['assignee'] ) {
+                            $_data['assignee'] = 0;
+                        }
                         $percent = $totalUnResolved > 0 && $_data['issues'] > 0 ? number_format($_data['issues'] / $totalUnResolved * 100) : 0;
                         $html[] = "<tr>";
                         $html[] = "<td><a href='".$link."?assignee=".$_data['assignee']."&unresolved=1'>".$this->Api_model->getCreatedBy($_data['assignee'])."</a></td>";

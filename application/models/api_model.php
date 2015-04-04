@@ -249,6 +249,9 @@ class Api_model extends CI_Model {
                         list($key,$taskid) = explode('-',$value);
                         $this->db->where('id',$taskid);
                         break;
+                    case 'assignee':
+                        $this->db->where('COALESCE(assignee)',$value);
+                        break;
                     case 'unresolved':
                         if ( $value ) {
                             $this->db->where_in('status',array(0,1));
