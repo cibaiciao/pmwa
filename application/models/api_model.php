@@ -253,7 +253,7 @@ class Api_model extends CI_Model {
                         $this->db->where('COALESCE(assignee,0)',$value);
                         break;
                     case 'unresolved':
-                        if ( $value && $key != 'status' ) {
+                        if ( $value && !array_key_exists('status',$criteria) ) {
                             $this->db->where_in('status',array(0,1));
                         }
                         break;
