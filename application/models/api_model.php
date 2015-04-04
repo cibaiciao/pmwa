@@ -258,6 +258,13 @@ class Api_model extends CI_Model {
                 $this->db->where('status',$criteria['status']);
             }
 
+            if ( isset($criteria['priority']) && trim($criteria['priority']) !== '' ) {
+                $this->db->where('priority',$criteria['priority']);
+            }
+
+            if ( isset($criteria['type']) && trim($criteria['type']) !== '' ) {
+                $this->db->where('type',$criteria['type']);
+            }
 
 
 //            foreach (  $criteria as $key => &$value ) {
@@ -291,7 +298,7 @@ class Api_model extends CI_Model {
 
 
         $this->db->where('project_id',$projectid);
-        $query = $this->db->get("tasks"); echo $this->db->last_query();die();
+        $query = $this->db->get("tasks");
 
         return $query->num_rows() > 0 ? $query->result_array() : array();
     }
