@@ -147,7 +147,7 @@ class Projects extends MY_RestController
         $id = $this->get("id",TRUE);
 
         $key = $this->get('key',TRUE);
-        $assignee = $this->get('assginee',TRUE);
+        $assignee = $this->get('assignee',TRUE);
         $priority = $this->get('priority',TRUE);
         $status = $this->get('status',TRUE);
         $type = $this->get('type',TRUE);
