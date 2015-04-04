@@ -251,7 +251,7 @@ class Api_model extends CI_Model {
                         break;
                     case 'unresolved':
                         if ( $value ) {
-                            $this->db->where('status !=','Closed');
+                            $this->db->where_in('status',array(0,1));
                         }
                         break;
                     default:
