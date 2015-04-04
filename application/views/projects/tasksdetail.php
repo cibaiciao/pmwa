@@ -1,6 +1,6 @@
 <div class="col-sm-12">
     <div role="alert" class="" id="info-msg"></div>
-    
+
     <div class="row">
         <div class="col-sm-6">
             <h3 class="page-header"><a href="/projects/detail/<?php echo $project['id'] ?>/tasks"><?php echo $project['name'] ?></a> / <a href="<?php echo current_url() ?>"><?php echo $project['key'] ?>-<?php echo sprintf('%03d',$task['id']); ?></a></h3>
@@ -34,8 +34,9 @@
                     <label for="description">Description</label>
                     <textarea name="description" id="description" class="form-control"><?php echo $task['description'] ?></textarea>
                 </div>
-                <button type="button" class="btn btn-default" id="btn">Edit</button>
+                <button type="button" class="btn btn-default" id="btnEdit" onclick="editTask(this);">Edit</button>
 
+                <input type="hidden" name="taskid" value="<?php echo $task['id'] ?>"/>
             </form>
         </div>
         <div class="col-sm-6">
