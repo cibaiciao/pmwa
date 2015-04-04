@@ -250,7 +250,7 @@ class Api_model extends CI_Model {
                         $this->db->where('id',$taskid);
                         break;
                     case 'assignee':
-                        $this->db->where('COALESCE(assignee)',$value);
+                        $this->db->where('COALESCE(assignee,0)',$value);
                         break;
                     case 'unresolved':
                         if ( $value ) {
