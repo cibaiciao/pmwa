@@ -249,7 +249,7 @@ class Api_model extends CI_Model {
                 $this->db->where('COALESCE(assignee,0)',$criteria['assignee']);
             }
 
-            if ( isset($criteria['unresolved']) && trim($criteria['unresolved']) !== '' && !isset($criteria['status']) && $criteria['status'] != -1 ) {
+            if ( trim($criteria['unresolved']) !== '' && $criteria['status'] == -1 ) {
                 $this->db->where_in('status',array(0,1));
 
             }
