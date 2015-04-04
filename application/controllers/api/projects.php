@@ -205,7 +205,7 @@ class Projects extends MY_RestController
         $id = $this->get("id",TRUE);
         $type = $this->get("type",TRUE);
 
-        $link = 'projects/detail/'.$id.'/tasks';
+        $link = '/projects/detail/'.$id.'/tasks';
 
         switch ( strtolower($type) ) {
             case "priority":
