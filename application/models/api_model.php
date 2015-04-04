@@ -255,9 +255,11 @@ class Api_model extends CI_Model {
                         }
                         break;
                     case 'unresolved':
-                        if ( $value && array_key_exists('status',$criteria) === FALSE ) {
+                        if ( !isset($criteria['status']) ) {
                             $this->db->where_in('status',array(0,1));
                         }
+
+
                         break;
                     case 'status':
                         if ( $value != -1 ) {
