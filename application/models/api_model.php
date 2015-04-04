@@ -240,35 +240,48 @@ class Api_model extends CI_Model {
     public function getTasksByProject($projectid,$criteria) {
 
         if ( count($criteria) > 0 ) {
+            if ( isset($criteria['key']) && trim($criteria['key']) !== '' ) {
+                list($key,$taskid) = explode('-',$criteria['key']);
+                $this->db->where('id',$taskid);
+            }
 
-            foreach (  $criteria as $key => &$value ) {
-                if ( trim($value) === "" ) { continue;}
+            if ( isset($criteria['assignee']) && trim($criteria['assignee']) !== '' && $criteria['assignee'] != -1 ) {
+                $this->db->where('COALESCE(assignee,0)',$criteria['assignee']);
+            }
 
-                switch ( $key ) {
-                    case 'key':
-                        list($key,$taskid) = explode('-',$value);
-                        $this->db->where('id',$taskid);
-                        break;
-                    case 'assignee':
-                        if ( $value != -1 ) {
-                            $this->db->where('COALESCE(assignee,0)',$value);
-                        }
-                        break;
-                    case 'unresolved':
-//                        if ( !isset($criteria['status']) ) {
-                            $this->db->where_in('status',array(0,1));
+            if ( isset($criteria['unresolved']) && trim($criteria['unresolved']) !== '' && !isset($criteria['status']) && trim($criteria['status']) !== "-1" ) {
+                $this->db->where_in('status',array(0,1));
+            }
+
+
+
+//            foreach (  $criteria as $key => &$value ) {
+//                if ( trim($value) === "" ) { continue;}
+//
+//                switch ( $key ) {
+//                    case 'key':
+//
+//                        break;
+//                    case 'assignee':
+//                        if ( $value != -1 ) {
+//                            $this->db->where('COALESCE(assignee,0)',$value);
 //                        }
-                        
-                        break;
-                    case 'status':
-                        if ( $value != -1 ) {
-                            $this->db->where('status',$value);
-                        }
-                        break;
-                    default:
-                        $this->db->where($key,$value);
-                }
-            } unset($value);
+//                        break;
+//                    case 'unresolved':
+////                        if ( !isset($criteria['status']) ) {
+//                            $this->db->where_in('status',array(0,1));
+////                        }
+//
+//                        break;
+//                    case 'status':
+//                        if ( $value != -1 ) {
+//                            $this->db->where('status',$value);
+//                        }
+//                        break;
+//                    default:
+//                        $this->db->where($key,$value);
+//                }
+//            } unset($value);
         }
 
 
