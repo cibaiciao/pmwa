@@ -67,7 +67,7 @@ function getTaskList() {
     return $.ajax({
         type:"GET",
         dataType:"json",
-        data:"api_key="+publicKey+"&id="+project_id+"&key="+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size,
+        data:"api_key="+publicKey+"&id="+project_id+"&key="+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size+"&unresolved="+unresolved,
         url:"/api/projects/tasks",
         success:function(resp) {
             $("#tasks").html(resp.data);
