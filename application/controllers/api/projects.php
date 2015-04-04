@@ -205,6 +205,8 @@ class Projects extends MY_RestController
         $id = $this->get("id",TRUE);
         $type = $this->get("type",TRUE);
 
+        $link = 'projects/detail/'.$id.'/tasks';
+
         switch ( strtolower($type) ) {
             case "priority":
                 $data = $this->Api_model->getSummaryByPriority($id);
@@ -217,9 +219,10 @@ class Projects extends MY_RestController
 
                 $html = array();
                 foreach ( $data as &$_data ) {
+
                     $percent = $totalUnResolved > 0 && $_data['issues'] > 0 ? number_format($_data['issues'] / $totalUnResolved * 100) : 0;
                     $html[] = "<tr>";
-                    $html[] = "<td><a href='#'>".ucwords(strtolower($_data['priority']))."</a></td>";
+                    $html[] = "<td><a href='".$link."?priority=".$_data['priority']."'>".ucwords(strtolower($_data['priority']))."</a></td>";
                     $html[] = "<td>".$_data['issues']."</td>";
                     $html[] = "<td><div class='progress'><div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"{$percent}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: {$percent}%;\">".$percent."%</div></div></td>";
                     $html[] = "</tr>";
