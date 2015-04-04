@@ -273,7 +273,7 @@ class Projects extends MY_RestController
                 foreach ( $data as &$_data ) {
                     $percent = $totalUnResolved > 0 && $_data['issues'] > 0 ? number_format($_data['issues'] / $totalUnResolved * 100) : 0;
                     $html[] = "<tr>";
-                    $html[] = "<td><a href='#'>".ucwords(strtolower($_data['status']))."</a></td>";
+                    $html[] = "<td><a href='".$link."?status=".$_data['status']."&unresolved=1'>".ucwords(strtolower($_data['status']))."</a></td>";
                     $html[] = "<td>".$_data['issues']."</td>";
                     $html[] = "<td><div class='progress'><div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"{$percent}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: {$percent}%;\">".$percent."%</div></div></td>";
                     $html[] = "</tr>";
