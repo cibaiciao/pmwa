@@ -26,7 +26,7 @@
     var assignee='<?php echo (string)$this->input->get('assignee') !== "" ? $this->input->get('assignee') : -1  ?>';
     var key='<?php echo $this->input->get('key') ? $this->input->get('key') : ''  ?>';
     var priority='<?php echo $this->input->get('priority') ? $this->input->get('priority') : ''  ?>';
-    var status='<?php echo $this->input->get('status') ? $this->input->get('status') : 0  ?>';
+    var status='<?php echo (string)$this->input->get('status') !== "" ? $this->input->get('status') : -1  ?>';
     var type='<?php echo $this->input->get('type') ? $this->input->get('type') : ''  ?>';
     var size='<?php echo $this->input->get('size') ? $this->input->get('size') : ''  ?>';
     var unresolved='<?php echo $this->input->get('unresolved') ? $this->input->get('unresolved') : 0  ?>';
