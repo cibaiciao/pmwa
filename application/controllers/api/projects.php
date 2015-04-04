@@ -146,7 +146,23 @@ class Projects extends MY_RestController
     public function tasks_get() {
         $id = $this->get("id",TRUE);
 
-        $tasks = $this->Api_model->getTasksByProject($id);
+        $key = $this->get('key',TRUE);
+        $assignee = $this->get('assginee',TRUE);
+        $priority = $this->get('priority',TRUE);
+        $status = $this->get('status',TRUE);
+        $type = $this->get('type',TRUE);
+        $size = $this->get('size',TRUE);
+
+
+
+        $tasks = $this->Api_model->getTasksByProject($id,array(
+            "key" => $key,
+            "assignee" => $assignee,
+            "priority" => $priority,
+            "status" => $status,
+            "type" => $type,
+            "size" => $size
+        ));
 
         if ( count($tasks) < 1 ) {
             $this->response(array("data" => '<tr><td colspan="7">No task found.</td></tr>'),SUCCESS);

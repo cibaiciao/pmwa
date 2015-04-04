@@ -237,7 +237,25 @@ class Api_model extends CI_Model {
 
     }
 
-    public function getTasksByProject($projectid) {
+    public function getTasksByProject($projectid,$criteria) {
+
+        if ( count($criteria) > 0 ) {
+
+            foreach (  $criteria as $key => &$value ) {
+                if ( trim($value) === "" ) { continue;}
+
+                switch ( $key ) {
+                    case 'key':
+                        list($key,$taskid) = explode('-',$value);
+                        $this->db->where('id',$taskid);
+                        break;
+                    default:
+                        $this->db->where($key,$value);
+                }
+            } unset($value);
+        }
+
+
         $query = $this->db->get_where("tasks",array("project_id" => $projectid));
 
         return $query->num_rows() > 0 ? $query->result_array() : array();
