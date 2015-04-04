@@ -121,6 +121,28 @@ class Projects extends MY_RestController
 
     }
 
+    public function tasks_put() {
+        $taskid = $this->put('taskid',TRUE);
+
+        $this->db->where('id',$taskid);
+        $result =$this->db->update("tasks",array(
+            'name' => $this->put('name',TRUE),
+            'type' => $this->put('type',TRUE),
+            'priority' => $this->put('priority',TRUE),
+            'size' => $this->put('size',TRUE),
+            'status' => $this->put('status',TRUE),
+            'assignee' => $this->put('assignee',TRUE),
+            'description' => $this->put('description',TRUE)
+        ));
+
+        if ( $result ) {
+            $this->response(array('message' => 'Task has been updated successfully','type' => 'success'),SUCCESS);
+        } else {
+            $this->response(array('message' => 'Task cannot be updated','type' => 'danger'),SUCCESS);
+        }
+
+    }
+
     public function tasks_get() {
         $id = $this->get("id",TRUE);
 

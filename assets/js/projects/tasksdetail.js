@@ -27,6 +27,29 @@ function addComment(btn) {
     });
 }
 
+function editTask(btn) {
+    $.ajax({
+        type:"PUT",
+        dataType:"json",
+        data:$("#form").serialize()+"&api_key="+publicKey,
+        url:"/api/projects/tasks",
+        success:function(resp) {
+            if ( resp.redirect !== undefined ) {
+                window.location.href = resp.redirect;
+            }
+            if ( resp.message !== undefined ) {
+                $("#info-msg").text(resp.message).removeClass().addClass("alert alert-"+resp.type);
+            }
+        },
+        error:function(resp) {
+            if ( resp ) {
+                var responseJSON = resp.responseJSON;
+                $("#info-msg").text(responseJSON.message).removeClass().addClass("alert alert-"+responseJSON.type);
+            }
+        }
+    });
+}
+
 $(document).ready(function(){
     getComments();
 
