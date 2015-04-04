@@ -272,7 +272,7 @@ class Api_model extends CI_Model {
     }
 
     public function getComments($id,$type="task") {
-        $this->db->order_by("created DESC");
+        $this->db->order_by("created ASC");
         $query = $this->db->get_where("comments",array("second_id" => $id,"type" => $type));
 
         return $query->num_rows() > 0 ? $query->result_array() : array();
