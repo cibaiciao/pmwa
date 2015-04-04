@@ -152,6 +152,7 @@ class Projects extends MY_RestController
         $status = $this->get('status',TRUE);
         $type = $this->get('type',TRUE);
         $size = $this->get('size',TRUE);
+        $unresolved = $this->get('unresolved',TRUE);
 
 
 
@@ -161,7 +162,8 @@ class Projects extends MY_RestController
             "priority" => $priority,
             "status" => $status,
             "type" => $type,
-            "size" => $size
+            "size" => $size,
+            'unresolved' => $unresolved
         ));
 
         if ( count($tasks) < 1 ) {
@@ -222,7 +224,7 @@ class Projects extends MY_RestController
 
                     $percent = $totalUnResolved > 0 && $_data['issues'] > 0 ? number_format($_data['issues'] / $totalUnResolved * 100) : 0;
                     $html[] = "<tr>";
-                    $html[] = "<td><a href='".$link."?priority=".$_data['priority']."'>".ucwords(strtolower($_data['priority']))."</a></td>";
+                    $html[] = "<td><a href='".$link."?priority=".$_data['priority']."&unresolved=1'>".ucwords(strtolower($_data['priority']))."</a></td>";
                     $html[] = "<td>".$_data['issues']."</td>";
                     $html[] = "<td><div class='progress'><div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"{$percent}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: {$percent}%;\">".$percent."%</div></div></td>";
                     $html[] = "</tr>";

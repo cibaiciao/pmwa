@@ -249,6 +249,11 @@ class Api_model extends CI_Model {
                         list($key,$taskid) = explode('-',$value);
                         $this->db->where('id',$taskid);
                         break;
+                    case 'unresolved':
+                        if ( $value ) {
+                            $this->db->where('status !=','Closed');
+                        }
+                        break;
                     default:
                         $this->db->where($key,$value);
                 }
