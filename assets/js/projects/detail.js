@@ -134,7 +134,9 @@ function exportCSV() {
         }
     }
 
-    window.open('/projects/1/tasks/csv?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size);
+    var projectid = $("#projectid").val();
+
+    window.open('/projects/exportTaskCSV?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size+"&projectid="+projectid);
 }
 
 $(document).ready(function(){
