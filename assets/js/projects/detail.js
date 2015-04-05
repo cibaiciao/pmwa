@@ -75,6 +75,19 @@ function getTaskList() {
     });
 }
 
+function filter() {
+    var searchCriteria = $(".search"), i,name;
+
+    for(i=0;i<searchCriteria.length;i++) {
+        name = searchCriteria[i].name;
+        console.log(name);
+    }
+}
+
+function exportCSV() {
+
+}
+
 $(document).ready(function(){
     if ( $("#summary").length > 0 ) {
         getSummaryByPriority();
