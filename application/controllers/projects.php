@@ -134,7 +134,24 @@ class Projects extends MY_Controller {
     }
 
     public function exportTaskCSV() {
+        if ( !$this->input->get() ) {
+            show_404("Page not found");
+        }
+        foreach ( $this->input->get() as $key => $value) {
+            $$key = $value;
+        }
+        $tasks = $this->Api_model->getTasksByProject($projectid,array(
+            "key" => $key,
+            "assignee" => $assignee,
+            "priority" => $priority,
+            "status" => $status,
+            "type" => $type,
+            "size" => $size,
+            'unresolved' => $unresolved
+        ));
 
+        echo "<pre>";
+        print_r($tasks);
     }
 
 }

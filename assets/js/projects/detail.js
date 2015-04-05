@@ -136,7 +136,7 @@ function exportCSV() {
 
     var projectid = $("#projectid").val();
 
-    window.open('/projects/exportTaskCSV?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size+"&projectid="+projectid);
+    window.open('/projects/exportTaskCSV?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size+"&projectid="+projectid+"&unresolved="+unresolved);
 }
 
 $(document).ready(function(){
