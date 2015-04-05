@@ -34,7 +34,7 @@
                     <label for="description">Description</label>
                     <textarea name="description" id="description" class="form-control"></textarea>
                 </div>
-                <button type="button" class="btn btn-default" id="btnEdit" onclick="addNewTask(this);">Edit</button>
+                <button type="button" class="btn btn-default" id="btnEdit" onclick="addNewTask(this);">Add</button>
 
                 <input type="hidden" name="taskid" value="<?php echo $project['id'] ?>"/>
             </form>
