@@ -56,9 +56,12 @@
                             </td>
                             <td>
                                 <label for="size">Size</label><br/>
+                                <?php
+                                    $sizeSelected = $this->input->get('size') ? ucwords(strtolower($this->input->get('size'))) : '';
+                                ?>
                                 <?php echo form_dropdown("size",
                                                                 array("" => "-Select-","Small" => "Small","Medium" => "Medium","Large" => "Large"),
-                                                                $this->input->get('size') ? $this->input->get('size') : '',
+                                                                    $sizeSelected,
                                                                 'id="size" class="search"') ?>
                             </td>
                         </tr>
