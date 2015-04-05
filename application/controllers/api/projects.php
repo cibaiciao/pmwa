@@ -124,6 +124,11 @@ class Projects extends MY_RestController
     public function tasks_put() {
         $taskid = $this->put('taskid',TRUE);
 
+        $assignee = $this->put('assignee',TRUE);
+
+        if ( !$assignee ) {
+            $assignee = "NULL";
+        }
         $this->db->where('id',$taskid);
         $result =$this->db->update("tasks",array(
             'name' => $this->put('name',TRUE),
@@ -131,7 +136,7 @@ class Projects extends MY_RestController
             'priority' => $this->put('priority',TRUE),
             'size' => $this->put('size',TRUE),
             'status' => $this->put('status',TRUE),
-            'assignee' => $this->put('assignee',TRUE),
+            'assignee' => $assignee,
             'description' => $this->put('description',TRUE)
         ));
 
