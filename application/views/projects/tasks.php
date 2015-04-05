@@ -26,7 +26,7 @@
                             <td>
                                 <label for="priority">Priority</label><br/>
                                 <?php
-                                    $prioritySelected = $this->input->get('priority') ? $this->input->get('priority') : '';
+                                    $prioritySelected = $this->input->get('priority') ? ucwords(strtolower($this->input->get('priority'))) : '';
                                 ?>
                                 <?php echo form_dropdown("priority",
                                                         array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),
