@@ -24,6 +24,14 @@
                             <label for="status">Status</label><br/>
                             <?php echo form_dropdown("status", array(-1 => "-Select-","Open","In Progress","QA","Closed"),"",'id="status" class="search"') ?>
                         </td>
+                        <td>
+                            <label for="type">Issue Type</label><br/>
+                            <?php echo form_dropdown("type", array(-1 => "-Select-","Story","Improvement","Bug"),"",'id="type" class="search"') ?>
+                        </td>
+                        <td>
+                            <label for="size">Size</label><br/>
+                            <?php echo form_dropdown("size", array(-1 => "-Select-","Small","Medium","Large"),"",'id="size" class="search"') ?>
+                        </td>
                     </tr>
                     </tbody>
 
