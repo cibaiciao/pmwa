@@ -32,7 +32,7 @@ class MY_BasicController extends CI_Controller {
         parent::__construct();
 
         if ( $this->session->userdata('isLogin') ) {
-            redirect(site_url("dashboard"));
+            redirect(site_url("projects"));
         }
     }
 
