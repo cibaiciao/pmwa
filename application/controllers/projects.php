@@ -82,7 +82,7 @@ class Projects extends MY_Controller {
                 $nav = array("active","");
                 break;
             case "tasks":
-                $data["assigneeOption"] = array_merge(array('' => '-Select-'),$this->Api_model->getAssigneeByProject($id));
+                $data["assigneeOption"] = $this->Api_model->getAssigneeByProject($id);
                 $nav = array("","active");
                 break;
         }
@@ -116,7 +116,7 @@ class Projects extends MY_Controller {
 
         $assignees = $this->Api_model->getAssignee($project['team_id']);
 
-        $assigneeOption = array();
+        $assigneeOption = array('' => '-Select-');
         if ( count($assignees) > 0 ) {
             foreach ( $assignees as &$_assignee ) {
                 $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
