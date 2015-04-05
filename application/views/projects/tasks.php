@@ -4,44 +4,48 @@
     <div class="row" id="task-list">
         <div class="col-md-12">
             <div class="well well-sm">
-                <table class="table table-condensed">
-                    <caption>Search</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <label for="key">Key</label><br/>
-                            <input type="text" value="" id="key" class="search"/>
-                        </td>
-                        <td>
-                            <label for="assignee">Assignee</label><br/>
-                            <?php echo form_dropdown("assignee",$assigneeOption,"",'id="assignee" class="search"') ?>
-                        </td>
-                        <td>
-                            <label for="priority">Priority</label><br/>
-                            <?php echo form_dropdown("priority",array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),"",'id="priority" class="search"') ?>
-                        </td>
-                        <td>
-                            <label for="status">Status</label><br/>
-                            <?php echo form_dropdown("status", array(-1 => "-Select-","Open","In Progress","QA","Closed"),"",'id="status" class="search"') ?>
-                        </td>
-                        <td>
-                            <label for="type">Issue Type</label><br/>
-                            <?php echo form_dropdown("type", array(-1 => "-Select-","Story","Improvement","Bug"),"",'id="type" class="search"') ?>
-                        </td>
-                        <td>
-                            <label for="size">Size</label><br/>
-                            <?php echo form_dropdown("size", array(-1 => "-Select-","Small","Medium","Large"),"",'id="size" class="search"') ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="6">
-                            <button type="button" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-default">Export CSV</button>
-                        </td>
-                    </tr>
-                    </tbody>
+                <form id="form">
+                    <table class="table table-condensed">
+                        <caption>Search</caption>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <label for="key">Key</label><br/>
+                                <input type="text" value="" id="key" class="search"/>
+                            </td>
+                            <td>
+                                <label for="assignee">Assignee</label><br/>
+                                <?php echo form_dropdown("assignee",$assigneeOption,"",'id="assignee" class="search"') ?>
+                            </td>
+                            <td>
+                                <label for="priority">Priority</label><br/>
+                                <?php echo form_dropdown("priority",array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),"",'id="priority" class="search"') ?>
+                            </td>
+                            <td>
+                                <label for="status">Status</label><br/>
+                                <?php echo form_dropdown("status", array(-1 => "-Select-","Open","In Progress","QA","Closed"),"",'id="status" class="search"') ?>
+                            </td>
+                            <td>
+                                <label for="type">Issue Type</label><br/>
+                                <?php echo form_dropdown("type", array(-1 => "-Select-","Story","Improvement","Bug"),"",'id="type" class="search"') ?>
+                            </td>
+                            <td>
+                                <label for="size">Size</label><br/>
+                                <?php echo form_dropdown("size", array(-1 => "-Select-","Small","Medium","Large"),"",'id="size" class="search"') ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <button type="button" class="btn btn-primary" onclick="filter();">Submit</button>
+                                <button type="button" class="btn btn-default" onclick="exportCSV();">Export CSV</button>
+                            </td>
+                        </tr>
+                        </tbody>
 
-                </table>
+                    </table>
+
+                    <input type="hidden" name="projectid" value="<?php echo $project['id'] ?>"/>
+                </form>
             </div>
 
             <table class="table table-condensed">
