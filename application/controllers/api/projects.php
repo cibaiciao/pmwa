@@ -127,7 +127,7 @@ class Projects extends MY_RestController
         $assignee = $this->put('assignee',TRUE);
 
         if ( !$assignee ) {
-            $assignee = "NULL";
+            $assignee = NULL;
         }
         $this->db->where('id',$taskid);
 
@@ -137,7 +137,7 @@ class Projects extends MY_RestController
             'priority' => $this->put('priority',TRUE),
             'size' => $this->put('size',TRUE),
             'status' => $this->put('status',TRUE),
-            'assignee' => NULL,
+            'assignee' => $assignee,
             'description' => $this->put('description',TRUE)
         ));
 
