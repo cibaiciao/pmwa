@@ -116,7 +116,7 @@ class Projects extends MY_Controller {
 
         $assignees = $this->Api_model->getAssignee($project['team_id']);
 
-        $assigneeOption = array('' => '-Select-');
+        $assigneeOption = array('NULL' => '-Select-');
         if ( count($assignees) > 0 ) {
             foreach ( $assignees as &$_assignee ) {
                 $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
