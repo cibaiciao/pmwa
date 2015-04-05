@@ -284,7 +284,7 @@ class Api_model extends CI_Model {
                 ->select('assignee');
         $query = $this->db->get_where("tasks",array("project_id" => $projectid));
 
-        $option = array();
+        $option = array('-1' => '-Select-');
         if ( $query->num_rows() > 0 ) {
             foreach ( $query->result_array() as &$_row ) {
                 $name = $this->getCreatedBy($_row['assignee']);
