@@ -16,6 +16,10 @@
                             <label for="assignee">Assignee</label><br/>
                             <?php echo form_dropdown("assignee",$assigneeOption,"",'id="assignee" class="search"') ?>
                         </td>
+                        <td>
+                            <label for="priority">Priority</label><br/>
+                            <?php echo form_dropdown("priority",array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),"",'id="priority" class="search"') ?>
+                        </td>
                     </tr>
                     </tbody>
 
