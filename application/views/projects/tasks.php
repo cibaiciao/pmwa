@@ -15,23 +15,38 @@
                             </td>
                             <td>
                                 <label for="assignee">Assignee</label><br/>
-                                <?php echo form_dropdown("assignee",$assigneeOption,"",'id="assignee" class="search"') ?>
+                                <?php echo form_dropdown("assignee",$assigneeOption,
+                                                            (string)$this->input->get('assignee') !== "" ? $this->input->get('assignee') : -1,
+                                                            'id="assignee" class="search"') ?>
                             </td>
                             <td>
                                 <label for="priority">Priority</label><br/>
-                                <?php echo form_dropdown("priority",array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),"",'id="priority" class="search"') ?>
+                                <?php echo form_dropdown("priority",
+                                                        array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),
+                                                        $this->input->get('priority') ? $this->input->get('priority') : '',
+                                                        'id="priority" class="search"')
+                                ?>
                             </td>
                             <td>
                                 <label for="status">Status</label><br/>
-                                <?php echo form_dropdown("status", array(-1 => "-Select-","Open","In Progress","QA","Closed"),"",'id="status" class="search"') ?>
+                                <?php echo form_dropdown("status",
+                                                                array(-1 => "-Select-","Open","In Progress","QA","Closed"),
+                                                                (string)$this->input->get('status') !== "" ? $this->input->get('status') : -1,
+                                                                'id="status" class="search"') ?>
                             </td>
                             <td>
                                 <label for="type">Issue Type</label><br/>
-                                <?php echo form_dropdown("type", array("" => "-Select-","Story" => "Story","Improvement" => "Improvement","Bug" => "Bug"),"",'id="type" class="search"') ?>
+                                <?php echo form_dropdown("type",
+                                                                array("" => "-Select-","Story" => "Story","Improvement" => "Improvement","Bug" => "Bug"),
+                                                                $this->input->get('type') ? $this->input->get('type') : '',
+                                                                'id="type" class="search"') ?>
                             </td>
                             <td>
                                 <label for="size">Size</label><br/>
-                                <?php echo form_dropdown("size", array("" => "-Select-","Small" => "Small","Medium" => "Medium","Large" => "Large"),"",'id="size" class="search"') ?>
+                                <?php echo form_dropdown("size",
+                                                                array("" => "-Select-","Small" => "Small","Medium" => "Medium","Large" => "Large"),
+                                                                $this->input->get('size') ? $this->input->get('size') : '',
+                                                                'id="size" class="search"') ?>
                             </td>
                         </tr>
                         <tr>
@@ -44,7 +59,7 @@
 
                     </table>
 
-                    <input type="hidden" name="projectid" value="<?php echo $project['id'] ?>"/>
+                    <input type="hidden" name="projectid" value="<?php echo $project['id'] ?>" id="projectid"/>
                 </form>
             </div>
 

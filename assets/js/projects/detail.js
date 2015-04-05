@@ -107,7 +107,34 @@ function filter() {
 }
 
 function exportCSV() {
+    var searchCriteria = $(".search"), i,name;
 
+    for(i=0;i<searchCriteria.length;i++) {
+        name = searchCriteria[i].name;
+        value = searchCriteria[i].value;
+        switch ( name ) {
+            case 'key':
+                key  =  value;
+                break;
+            case 'assignee':
+                assignee = value;
+                break;
+            case 'priority':
+                priority = value;
+                break;
+            case 'status':
+                status = value;
+                break;
+            case 'type':
+                type = value;
+                break;
+            case 'size':
+                size = value;
+                break;
+        }
+    }
+
+    window.open('/projects/1/tasks/csv?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size);
 }
 
 $(document).ready(function(){
