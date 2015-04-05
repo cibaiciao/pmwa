@@ -36,16 +36,22 @@
                             </td>
                             <td>
                                 <label for="status">Status</label><br/>
+                                <?php
+                                    $statusSelected = (string)$this->input->get('status') !== "" ? $this->input->get('status') : -1
+                                ?>
                                 <?php echo form_dropdown("status",
                                                                 array(-1 => "-Select-","Open","In Progress","QA","Closed"),
-                                                                (string)$this->input->get('status') !== "" ? $this->input->get('status') : -1,
+                                                                $statusSelected,
                                                                 'id="status" class="search"') ?>
                             </td>
                             <td>
                                 <label for="type">Issue Type</label><br/>
+                                <?php
+                                    $prioritySelected = $this->input->get('type') ? ucwords(strtolower($this->input->get('type'))) : '';
+                                ?>
                                 <?php echo form_dropdown("type",
                                                                 array("" => "-Select-","Story" => "Story","Improvement" => "Improvement","Bug" => "Bug"),
-                                                                $this->input->get('type') ? $this->input->get('type') : '',
+                                                                $prioritySelected,
                                                                 'id="type" class="search"') ?>
                             </td>
                             <td>
