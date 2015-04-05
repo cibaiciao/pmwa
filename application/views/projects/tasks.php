@@ -11,7 +11,7 @@
                         <tr>
                             <td>
                                 <label for="key">Key</label><br/>
-                                <input type="text" value="" id="key" class="search"/>
+                                <input type="text" value="" id="key" class="search" name="key"/>
                             </td>
                             <td>
                                 <label for="assignee">Assignee</label><br/>
