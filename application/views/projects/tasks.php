@@ -27,11 +27,11 @@
                             </td>
                             <td>
                                 <label for="type">Issue Type</label><br/>
-                                <?php echo form_dropdown("type", array("" => "-Select-","Story","Improvement","Bug"),"",'id="type" class="search"') ?>
+                                <?php echo form_dropdown("type", array("" => "-Select-","Story" => "Story","Improvement" => "Improvement","Bug" => "Bug"),"",'id="type" class="search"') ?>
                             </td>
                             <td>
                                 <label for="size">Size</label><br/>
-                                <?php echo form_dropdown("size", array("" => "-Select-","Small","Medium","Large"),"",'id="size" class="search"') ?>
+                                <?php echo form_dropdown("size", array("" => "-Select-","Small" => "Small","Medium" => "Medium","Large" => "Large"),"",'id="size" class="search"') ?>
                             </td>
                         </tr>
                         <tr>
