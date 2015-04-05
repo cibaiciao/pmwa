@@ -143,6 +143,10 @@ class Projects extends MY_Controller {
         $project = $this->Api_model->getUniversalProject($projectid);
         $projectKey = $project['key'];
 
+        if ( !isset($unresolved) ) {
+            $unresolved = 0;
+        }
+
         $tasks = $this->Api_model->getTasksByProject($projectid,array(
             "key" => $key,
             "assignee" => $assignee,
