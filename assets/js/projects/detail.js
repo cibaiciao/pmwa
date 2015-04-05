@@ -102,6 +102,8 @@ function filter() {
                 break;
         }
     }
+
+    getTaskList();
 }
 
 function exportCSV() {
