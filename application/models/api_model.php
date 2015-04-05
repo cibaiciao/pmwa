@@ -266,6 +266,10 @@ class Api_model extends CI_Model {
                 $this->db->where('type',$criteria['type']);
             }
 
+            if ( isset($criteria['size']) && trim($criteria['size']) !== '' ) {
+                $this->db->where('size',$criteria['size']);
+            }
+
 
 //            foreach (  $criteria as $key => &$value ) {
 //                if ( trim($value) === "" ) { continue;}
