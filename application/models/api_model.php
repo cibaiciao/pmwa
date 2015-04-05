@@ -239,7 +239,7 @@ class Api_model extends CI_Model {
 
     public function getTasksByProject($projectid,$criteria) {
 
-        print_r($criteria);die();
+        
         if ( count($criteria) > 0 ) {
             if ( isset($criteria['key']) && trim($criteria['key']) !== '' ) {
                 list($key,$taskid) = explode('-',$criteria['key']);
