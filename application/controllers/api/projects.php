@@ -121,6 +121,31 @@ class Projects extends MY_RestController
 
     }
 
+    public function tasks_post() {
+
+        $projectid = $this->post('projectid',TRUE);
+        $name = $this->post('name',TRUE);
+        $type = $this->post('type',TRUE);
+        $priority = $this->post('priority',TRUE);
+        $size = $this->post('size',TRUE);
+        $status = $this->post('status',TRUE);
+        $assignee = $this->post('assignee',TRUE);
+        $description = $this->post('description',TRUE);
+
+        if ( trim($name) === "" ){
+            $this->response(array('message' => 'The name field cannot be blank.','type' => 'danger'),SUCCESS);
+        }
+
+        if ( !$projectid ) {
+            $this->response(array('message' => 'Internal Server Error Problem. Please try again.','type' => 'danger'),INTERNAL_SERVER_ERROR);
+        }
+
+
+
+
+
+    }
+
     public function tasks_put() {
         $taskid = $this->put('taskid',TRUE);
 

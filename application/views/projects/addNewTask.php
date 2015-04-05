@@ -36,13 +36,12 @@
                 </div>
                 <button type="button" class="btn btn-default" id="btnEdit" onclick="addNewTask(this);">Add</button>
 
-                <input type="hidden" name="taskid" value="<?php echo $project['id'] ?>"/>
+                <input type="hidden" name="projectid" value="<?php echo $project['id'] ?>"/>
             </form>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    var taskid=<?php echo $task['id'] ?>;
     var id=<?php echo $project['id'] ?>;
 </script>
