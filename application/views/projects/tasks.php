@@ -34,8 +34,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <button type="button" class="btn btn-default">Submit</button>
+                        <td colspan="6">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-default">Export CSV</button>
                         </td>
                     </tr>
                     </tbody>
