@@ -133,6 +133,8 @@ class Projects extends MY_Controller {
 
     }
 
-    public function c
+    public function exportTaskCSV() {
+        
+    }
 
 }
