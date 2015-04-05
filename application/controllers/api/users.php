@@ -57,7 +57,7 @@ class Users extends MY_RestController {
                 "id"    => $user_id,
                 "isLogin" => 1
             ));
-            $this->response(array("redirect" => site_url('dashboard')),SUCCESS);
+            $this->response(array("redirect" => site_url('projects')),SUCCESS);
         } else {
             $this->response(array("message" => "Internal Server Error. Please try again later.", "type" => "danger"),INTERNAL_SERVER_ERROR);
         }
@@ -168,7 +168,7 @@ class Users extends MY_RestController {
 
         $this->session->set_userdata($user);
 
-        $this->response(array("redirect" => site_url('dashboard')),SUCCESS);
+        $this->response(array("redirect" => site_url('projects')),SUCCESS);
     }
 
     public function logout_post() {
