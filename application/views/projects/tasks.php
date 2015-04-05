@@ -15,8 +15,12 @@
                             </td>
                             <td>
                                 <label for="assignee">Assignee</label><br/>
-                                <?php echo form_dropdown("assignee",$assigneeOption,
-                                                            (string)$this->input->get('assignee') !== "" ? $this->input->get('assignee') : -1,
+                                <?php
+                                    $assigneeSelected  = (string)$this->input->get('assignee') !== "" ? $this->input->get('assignee') : -1;
+                                ?>
+                                <?php echo form_dropdown("assignee",
+                                                            $assigneeOption,
+                                                            $assigneeSelected,
                                                             'id="assignee" class="search"') ?>
                             </td>
                             <td>
