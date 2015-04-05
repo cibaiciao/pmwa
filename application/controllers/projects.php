@@ -137,8 +137,8 @@ class Projects extends MY_Controller {
         if ( !$this->input->get() ) {
             show_404("Page not found");
         }
-        foreach ( $this->input->get() as $key => $value) {
-            $$key = $value;
+        foreach ( $this->input->get() as $k => $value) {
+            $$k = $value;
         }
         $tasks = $this->Api_model->getTasksByProject($projectid,array(
             "key" => $key,
