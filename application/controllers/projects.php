@@ -129,6 +129,10 @@ class Projects extends MY_Controller {
     }
 
     public function tasks($taskid) {
+        if ( !$taskid ) {
+            redirect('/projects');
+        }
+
 
         $nav = array("","active");
         $this->load->vars(array("projectNav" => $nav));
