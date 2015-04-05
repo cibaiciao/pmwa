@@ -74,7 +74,10 @@ function addNewTask(btn) {
 }
 
 $(document).ready(function(){
-    getComments();
+    if ( $("#comment-list").length > 0 ) {
+        getComments();
+    }
+
 
 
 });
