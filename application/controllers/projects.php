@@ -140,6 +140,9 @@ class Projects extends MY_Controller {
         foreach ( $this->input->get() as $k => $value) {
             $$k = $value;
         }
+        $project = $this->Api_model->getUniversalProject($projectid);
+        $projectKey = $project['key'];
+
         $tasks = $this->Api_model->getTasksByProject($projectid,array(
             "key" => $key,
             "assignee" => $assignee,
@@ -149,9 +152,51 @@ class Projects extends MY_Controller {
             "size" => $size,
             'unresolved' => $unresolved
         ));
+        $statusMapping = array("Open","In Progress","QA","Closed");
 
-        echo "<pre>";
-        print_r($tasks);
+
+        $name = "tasks.csv";
+
+        header("Content-type: application/csv");
+        header("Content-Disposition: attachment; filename={$name}");
+        header("Pragma: no-cache");
+
+        $output = fopen("php://output", "w");
+
+        $csv = array(
+            "Key",
+            "Name",
+            "Summary",
+            "Assignee",
+            "Priority",
+            "Status",
+            "Issue Type",
+            "Size"
+        );
+        fputcsv($output,$csv);
+
+        if ( count($tasks) > 0 ) {
+            foreach ( $tasks as &$_task ) {
+                $user = $this->Api_model->getCreatedBy($_task['assignee']);
+
+                $row = array(
+                    sprintf('%s-%03d',$projectKey,$_task['id']),
+                    $_task['name'],
+                    $_task['description'],
+                    $user,
+                    ucwords(strtolower($_task['priority'])),
+                    $statusMapping[$_task['status']],
+                    ucwords(strtolower($_task['type'])),
+                    ucwords(strtolower($_task['size']))
+                );
+
+                fputcsv($output,$row);
+
+            } unset($_value);
+        }
+
+        fclose($output);
+
     }
 
 }
