@@ -47,11 +47,11 @@
                             <td>
                                 <label for="type">Issue Type</label><br/>
                                 <?php
-                                    $prioritySelected = $this->input->get('type') ? ucwords(strtolower($this->input->get('type'))) : '';
+                                    $typeSelected = $this->input->get('type') ? ucwords(strtolower($this->input->get('type'))) : '';
                                 ?>
                                 <?php echo form_dropdown("type",
                                                                 array("" => "-Select-","Story" => "Story","Improvement" => "Improvement","Bug" => "Bug"),
-                                                                $prioritySelected,
+                                                                $typeSelected,
                                                                 'id="type" class="search"') ?>
                             </td>
                             <td>
