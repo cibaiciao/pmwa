@@ -80,7 +80,27 @@ function filter() {
 
     for(i=0;i<searchCriteria.length;i++) {
         name = searchCriteria[i].name;
-        console.log(name);
+        value = searchCriteria[i].value;
+        switch ( name ) {
+            case 'key':
+                key  =  value;
+                break;
+            case 'assignee':
+                assignee = value;
+                break;
+            case 'priority':
+                priority = value;
+                break;
+            case 'status':
+                status = value;
+                break;
+            case 'type':
+                type = value;
+                break;
+            case 'size':
+                size = value;
+                break;
+        }
     }
 }
 
