@@ -25,10 +25,13 @@
                             </td>
                             <td>
                                 <label for="priority">Priority</label><br/>
+                                <?php
+                                    $prioritySelected = $this->input->get('priority') ? $this->input->get('priority') : '';
+                                ?>
                                 <?php echo form_dropdown("priority",
                                                         array('' => '-Select-','Major' => 'Major','Minor' => 'Minor','Emergency' => 'Emergency','Critical' => 'Critical' ),
-                                                        $this->input->get('priority') ? $this->input->get('priority') : '',
-                                                        'id="priority" class="search"')
+                                                        $prioritySelected,
+                                                        'id="priority" class="search"');
                                 ?>
                             </td>
                             <td>
