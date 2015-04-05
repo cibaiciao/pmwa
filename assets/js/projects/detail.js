@@ -139,6 +139,10 @@ function exportCSV() {
     window.open('/projects/exportTaskCSV?key='+key+"&assignee="+assignee+"&priority="+priority+"&status="+status+"&type="+type+"&size="+size+"&projectid="+projectid+"&unresolved="+unresolved);
 }
 
+function addNew() {
+    window.location.href = '/projects/tasks';
+}
+
 $(document).ready(function(){
     if ( $("#summary").length > 0 ) {
         getSummaryByPriority();

@@ -97,7 +97,39 @@ class Projects extends MY_Controller {
         $this->load->view("layout",$data);
     }
 
+    public function addNewTask($projectid) {
+        $nav = array("","active");
+        $this->load->vars(array("projectNav" => $nav));
+        $data["tab"] =$tab = "tasks";
+
+        $data['title'] = "Task - Add New";
+        $data["js"][] = "assets/js/projects/tasksdetail.js";
+
+        $project = $this->Api_model->getUniversalProject($projectid);
+        $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
+
+        $data['project'] = $project;
+        $assignees = $this->Api_model->getAssignee($project['team_id']);
+        $assigneeOption = array('' => '-Select-');
+        if ( count($assignees) > 0 ) {
+            foreach ( $assignees as &$_assignee ) {
+                $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
+            }
+        }
+        $data['assigneeOption'] = $assigneeOption;
+
+
+        $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
+        $data[$tab] = $this->load->view("projects/addNewTask",$data,TRUE);
+        $data["body"] = $this->load->view("projects/detail",$data,TRUE);
+
+        $this->load->view("layout",$data);
+
+
+    }
+
     public function tasks($taskid) {
+
         $nav = array("","active");
         $this->load->vars(array("projectNav" => $nav));
         $data["tab"] =$tab = "tasks";

@@ -69,6 +69,7 @@
                             <td colspan="6">
                                 <button type="button" class="btn btn-primary" onclick="filter();">Submit</button>
                                 <button type="button" class="btn btn-default" onclick="exportCSV();">Export CSV</button>
+                                <button type="button" class="btn btn-success" onclick="addNew();">Add New Task</button>
                             </td>
                         </tr>
                         </tbody>
