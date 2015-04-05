@@ -3,6 +3,25 @@
 
     <div class="row" id="task-list">
         <div class="col-md-12">
+            <div class="well well-sm">
+                <table class="table table-condensed">
+                    <caption>Search</caption>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <label for="key">Key</label>
+                            <input type="text" value="" id="key"/>
+                        </td>
+                        <td>
+                            <label for="assignee">Assignee</label>
+                            <input type="text" value="" id="assignee"/>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
             <table class="table table-condensed">
                 <thead>
                 <tr>
