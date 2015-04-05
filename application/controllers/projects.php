@@ -82,7 +82,7 @@ class Projects extends MY_Controller {
                 $nav = array("active","");
                 break;
             case "tasks":
-                $data["assigneeOption"] = $this->Api_model->getAssigneeByProject($id);
+                $data["assigneeOption"] = $this->getAssigneeOption($project['team_id']);
                 $nav = array("","active");
                 break;
         }
@@ -97,6 +97,18 @@ class Projects extends MY_Controller {
         $this->load->view("layout",$data);
     }
 
+    protected function getAssigneeOption($team_id) {
+        $assignees = $this->Api_model->getAssignee($team_id);
+        $assigneeOption = array('' => '-Select-');
+        if ( count($assignees) > 0 ) {
+            foreach ( $assignees as &$_assignee ) {
+                $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
+            }
+        }
+
+        return $assigneeOption;
+    }
+
     public function addNewTask($projectid) {
         $nav = array("","active");
         $this->load->vars(array("projectNav" => $nav));
@@ -109,14 +121,8 @@ class Projects extends MY_Controller {
         $project['createdByName'] = $this->Api_model->getCreatedBy($project['createdBy']);
 
         $data['project'] = $project;
-        $assignees = $this->Api_model->getAssignee($project['team_id']);
-        $assigneeOption = array('' => '-Select-');
-        if ( count($assignees) > 0 ) {
-            foreach ( $assignees as &$_assignee ) {
-                $assigneeOption[$_assignee['id']] = $_assignee['fname'].' '.$_assignee['lname'];
-            }
-        }
-        $data['assigneeOption'] = $assigneeOption;
+
+        $data['assigneeOption'] = $this->getAssigneeOption($project['team_id']);
 
 
         $data['leftPanel'] = $this->load->view("leftPanel",$data,TRUE);
