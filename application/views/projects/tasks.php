@@ -33,6 +33,11 @@
                             <?php echo form_dropdown("size", array(-1 => "-Select-","Small","Medium","Large"),"",'id="size" class="search"') ?>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default">Submit</button>
+                        </td>
+                    </tr>
                     </tbody>
 
                 </table>
