@@ -140,7 +140,8 @@ function exportCSV() {
 }
 
 function addNew() {
-    window.location.href = '/projects/tasks';
+    var projectid = $("#projectid").val();
+    window.location.href = '/projects/addNewTask/'+projectid;
 }
 
 $(document).ready(function(){
