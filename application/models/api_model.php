@@ -269,35 +269,6 @@ class Api_model extends CI_Model {
             if ( isset($criteria['size']) && trim($criteria['size']) !== '' ) {
                 $this->db->where('size',$criteria['size']);
             }
-
-
-//            foreach (  $criteria as $key => &$value ) {
-//                if ( trim($value) === "" ) { continue;}
-//
-//                switch ( $key ) {
-//                    case 'key':
-//
-//                        break;
-//                    case 'assignee':
-//                        if ( $value != -1 ) {
-//                            $this->db->where('COALESCE(assignee,0)',$value);
-//                        }
-//                        break;
-//                    case 'unresolved':
-////                        if ( !isset($criteria['status']) ) {
-//                            $this->db->where_in('status',array(0,1));
-////                        }
-//
-//                        break;
-//                    case 'status':
-//                        if ( $value != -1 ) {
-//                            $this->db->where('status',$value);
-//                        }
-//                        break;
-//                    default:
-//                        $this->db->where($key,$value);
-//                }
-//            } unset($value);
         }
 
 
@@ -305,6 +276,26 @@ class Api_model extends CI_Model {
         $query = $this->db->get("tasks");
 
         return $query->num_rows() > 0 ? $query->result_array() : array();
+    }
+
+    public function getAssigneeByProject($projectid) {
+
+        $this->db->distinct()
+                ->select('assignee');
+        $query = $this->db->get_where("tasks",array("project_id" => $projectid));
+
+        $option = array();
+        if ( $query->num_rows() > 0 ) {
+            foreach ( $query->result_array() as &$_row ) {
+                $name = $this->getCreatedBy($_row['assignee']);
+
+                $id = $_row['assignee'] ? $_row['assignee'] : 0;
+
+                $option[$id] = $name;
+            }
+        }
+
+        return $option;
     }
 
     public function getTask($id) {

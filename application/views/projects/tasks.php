@@ -9,12 +9,12 @@
                     <tbody>
                     <tr>
                         <td>
-                            <label for="key">Key</label>
-                            <input type="text" value="" id="key"/>
+                            <label for="key">Key</label><br/>
+                            <input type="text" value="" id="key" class="search"/>
                         </td>
                         <td>
-                            <label for="assignee">Assignee</label>
-                            <input type="text" value="" id="assignee"/>
+                            <label for="assignee">Assignee</label><br/>
+                            <?php echo form_dropdown("assignee",$assigneeOption,"",'id="assignee" class="search"') ?>
                         </td>
                     </tr>
                     </tbody>
