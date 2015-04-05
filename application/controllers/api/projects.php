@@ -129,7 +129,7 @@ class Projects extends MY_RestController
         $priority = $this->post('priority',TRUE);
         $size = $this->post('size',TRUE);
         $status = $this->post('status',TRUE);
-        $assignee = $this->post('assignee',TRUE);
+        $assignee = $this->post('assignee',TRUE); if ( !$assignee ) { $assignee = NULL; }
         $description = $this->post('description',TRUE);
 
         if ( trim($name) === "" ){
@@ -140,6 +140,23 @@ class Projects extends MY_RestController
             $this->response(array('message' => 'Internal Server Error Problem. Please try again.','type' => 'danger'),INTERNAL_SERVER_ERROR);
         }
 
+        $toInsert = array(
+            "project_id" => $projectid,
+            'name' => $name,
+            'type' => $type,
+            'priority' => $priority,
+            'size' => $size,
+            'status' => $status,
+            'assignee' => $assignee,
+            'description' => $description,
+            'createdDate' => date("Y-m-d H:i:s")
+        );
+
+        $this->db->insert('tasks',$toInsert);
+
+        $insert_id = $this->db->insert_id();
+
+        $this->response(array('redirect' => '/projects/tasks/'.$insert_id ),SUCCESS);
 
 
 
