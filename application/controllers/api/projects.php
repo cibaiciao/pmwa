@@ -130,13 +130,14 @@ class Projects extends MY_RestController
             $assignee = "NULL";
         }
         $this->db->where('id',$taskid);
+
         $result =$this->db->update("tasks",array(
             'name' => $this->put('name',TRUE),
             'type' => $this->put('type',TRUE),
             'priority' => $this->put('priority',TRUE),
             'size' => $this->put('size',TRUE),
             'status' => $this->put('status',TRUE),
-            'assignee' => $assignee,
+            'assignee' => NULL,
             'description' => $this->put('description',TRUE)
         ));
 
