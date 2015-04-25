@@ -107,7 +107,15 @@ class Api_model extends CI_Model {
         $projects = array();
         foreach ( $rows as &$_row ) {
             $query = $this->db->query($sql.$_row['team_id']);
-            $projects[] = $query->row_array();$query->free_result();
+
+            if ( $query->num_rows() > 0 ) {
+                $results = $query->result_array();$query->free_result();
+                foreach ( $results as &$_result ) {
+                    $projects[] = $_result;
+                } unset($_result);
+            }
+
+
 
 
         } unset($_row);
