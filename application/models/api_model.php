@@ -90,32 +90,29 @@ class Api_model extends CI_Model {
     }
 
     public function getProjects() {
-        // get the project that user participates in
-        $this->db->distinct()
-                 ->select("project_id");
-        $query = $this->db->get_where("tasks",array("assignee" => $this->session->userdata("id")));
+        // need to change logic
 
-
-        $projects = array();
-
-        if ( $query->num_rows() > 0 ) {
-            $qryAssignee = $query->result_array();
-            foreach ( $qryAssignee as $_project_id ) {
-                $projects[$_project_id['project_id']] = 1;
-            }
-        }
-
-        $sql = "SELECT * FROM projects WHERE createdBy = ".$this->session->userdata('id');
-
-        if ( !empty($projects ) ) {
-            $projects = array_keys($projects);
-            $sql .= " OR id IN (".implode(",",$projects).")";
-        }
-
+        // 1. get all teams that user is in
+        $sql = 'SELECT team_id FROM users_teams WHERE user_id='.$this->session->userdata('id').' AND status=1 GROUP BY team_id';
         $query = $this->db->query($sql);
 
+        if ( !$query->num_rows() ) {
+            return array();
+        }
 
-        return $query->num_rows() > 0 ? $query->result_array() : array();
+        $rows = $query->result_array(); $query->free_result();
+
+        $sql = 'SELECT * FROM projects WHERE team_id=';
+
+        $projects = array();
+        foreach ( $rows as &$_row ) {
+            $query = $this->db->query($sql.$_row['team_id']);
+            $projects[] = $query->row_array();$query->free_result();
+
+
+        } unset($_row);
+
+        return $projects;
     }
 
     public function checkProjectKey($createdby,$key) {
