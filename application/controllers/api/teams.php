@@ -191,6 +191,26 @@ class Teams extends MY_RestController
         );
         $this->db->insert("users_teams",$toInsert);
 
+        $insertid = $this->db->insert_id();
+        // send email out to the user
+        $confirmLink = site_url('teams/confirm/'.$insertid);
+        $message =<<<"OEF"
+            Hi,<br/>
+            <br/>
+            You have pending invitation from your friend.<br/>
+            Please click to the link below to accept it.<br/>
+            <br/>
+            <a href='$confirmLink'>Click here to confirm</a>
+OEF;
+
+
+        $this->email->clear();
+        $this->email->from('noreply@pmwa.com')
+                    ->to($email)
+                    ->subject('Response to accept to join the team')
+                    ->message($message)
+                    ->send();
+
         $this->response(array("status" => 1, "message" => "The invitation has been sent. Please wait for the user to confirm.", "type" => "success"),SUCCESS);
     }
 

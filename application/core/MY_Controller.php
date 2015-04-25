@@ -65,6 +65,15 @@ class MY_RestController extends REST_Controller {
 
 
         $this->load->model("Api_model");
+
+        // load email configuration
+        $config['protocol'] = 'sendmail';
+        $config['mailpath'] = '/usr/sbin/sendmail';
+        $config['charset'] = 'iso-8859-1';
+        $config['wordwrap'] = TRUE;
+        $config['mailtype'] = 'html';
+
+        $this->email->initialize($config);
     }
 
 

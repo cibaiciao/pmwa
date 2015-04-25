@@ -58,4 +58,11 @@ class Teams extends MY_Controller {
 
     }
 
+    public function confirm($confirm_id) {
+        $this->db->where('id',$confirm_id);
+        $this->db->update('users_teams',array('isConfirm' => 1));
+
+        redirect(site_url('teams'));
+    }
+
 }
