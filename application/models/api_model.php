@@ -108,6 +108,7 @@ class Api_model extends CI_Model {
         $sql = "SELECT * FROM projects WHERE createdBy = ".$this->session->userdata('id');
 
         if ( !empty($projects ) ) {
+            $projects = array_keys($projects);
             $sql .= " OR id IN (".implode(",",$projects).")";
         }
 
